@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aderemi Praise | Shopify E-Commerce Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080808; --bg2:#0f0f0f; --bg3:#141414; --bg4:#1c1c1c;
+  --accent:#1db954; --accent-dim:rgba(29,185,84,0.12); --accent-glow:rgba(29,185,84,0.25);
+  --white:#ffffff; --gray:#888; --gray2:#555; --border:rgba(255,255,255,0.07);
+  --border-a:rgba(29,185,84,0.3); --text:#e4e4e4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--gray);font-size:0.875rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{background:var(--accent);color:#000;padding:0.5rem 1.4rem;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:700;transition:all 0.2s;}
+.nav-cta:hover{background:#25d162;box-shadow:0 0 20px var(--accent-glow);transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 6% 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(29,185,84,0.07) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-100px;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(29,185,84,0.04) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent-dim);color:var(--accent);padding:0.4rem 1rem;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;border:1px solid var(--border-a);}
+.tag-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.5);}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:900;line-height:1.12;margin-bottom:1.2rem;color:var(--white);letter-spacing:-0.02em;}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero-desc{font-size:1rem;color:var(--gray);line-height:1.75;margin-bottom:2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#000;padding:0.8rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.25s;display:inline-block;}
+.btn-primary:hover{background:#25d162;box-shadow:0 8px 28px var(--accent-glow);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--white);padding:0.8rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.9rem;border:1px solid var(--border);transition:all 0.25s;display:inline-block;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* SKILL RINGS */
+.skills-panel{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;padding:2rem;background:var(--bg2);border-radius:20px;border:1px solid var(--border);}
+.ring-item{display:flex;flex-direction:column;align-items:center;gap:0.7rem;}
+.ring-wrap{position:relative;width:86px;height:86px;}
+.ring-wrap svg{transform:rotate(-90deg);}
+circle.track{fill:none;stroke:var(--bg4);stroke-width:6;}
+circle.ring-fill{fill:none;stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1);}
+.ring-pct{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:0.83rem;font-weight:700;color:var(--white);}
+.ring-label{font-size:0.68rem;color:var(--gray);text-align:center;font-weight:500;line-height:1.3;}
+
+/* SECTIONS */
+section{padding:90px 6%;}
+.sec-eye{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;line-height:1.2;color:var(--white);margin-bottom:1rem;}
+.sec-sub{color:var(--gray);font-size:0.95rem;line-height:1.75;max-width:520px;}
+
+/* ABOUT */
+.about{background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;margin-top:3rem;}
+.about-img-box{width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--bg3);}
+.about-img-box img{width:100%;height:100%;object-fit:cover;display:block;}
+.about-badge{display:inline-flex;align-items:center;gap:0.6rem;background:var(--accent);color:#000;padding:0.55rem 1.1rem;border-radius:10px;font-weight:700;font-size:0.8rem;margin-top:1.2rem;}
+.shopify-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent-dim);border:1px solid var(--border-a);color:var(--accent);padding:0.4rem 0.9rem;border-radius:8px;font-size:0.78rem;font-weight:700;margin-bottom:1.4rem;}
+.about-text p{color:var(--gray);font-size:0.93rem;line-height:1.85;margin-bottom:1.1rem;}
+
+/* SERVICES */
+.services{background:var(--bg);}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.2rem;margin-top:3rem;}
+.svc-card{background:var(--bg2);border-radius:16px;padding:1.8rem;border:1px solid var(--border);transition:all 0.3s;}
+.svc-card:hover{border-color:var(--border-a);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.4);}
+.svc-icon{width:46px;height:46px;background:var(--accent-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem;border:1px solid var(--border-a);}
+.svc-card h3{font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:0.55rem;}
+.svc-card p{font-size:0.83rem;color:var(--gray);line-height:1.65;}
+
+/* PROCESS */
+.process{background:var(--bg2);}
+.process-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative;}
+.process-row::before{content:'';position:absolute;top:23px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--border-a),transparent);}
+.p-step{padding:0 0.8rem;text-align:center;}
+.step-circle{width:46px;height:46px;background:var(--bg);border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--accent);margin:0 auto 1.1rem;position:relative;z-index:1;}
+.p-step h3{font-size:0.86rem;font-weight:700;color:var(--white);margin-bottom:0.4rem;}
+.p-step p{font-size:0.76rem;color:var(--gray);line-height:1.6;}
+
+/* PORTFOLIO */
+.portfolio{background:var(--bg);}
+.port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:1.5rem;margin-top:3rem;}
+.p-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);transition:all 0.3s;}
+.p-card:hover{transform:translateY(-5px);border-color:var(--border-a);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
+.ba-wrap{display:grid;grid-template-columns:1fr 1fr;height:210px;overflow:hidden;}
+.ba-side{position:relative;overflow:hidden;}
+.ba-side img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.4s;}
+.p-card:hover .ba-side img{transform:scale(1.05);}
+.ba-tag{position:absolute;bottom:8px;left:8px;font-size:0.63rem;font-weight:800;padding:0.17rem 0.5rem;border-radius:4px;text-transform:uppercase;letter-spacing:0.06em;}
+.ba-tag.b{background:#ff3b3b;color:#fff;}
+.ba-tag.a{background:var(--accent);color:#000;}
+.p-cover{height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;}
+.p-body{padding:1.4rem;}
+.p-tag{font-size:0.66rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);padding:0.16rem 0.6rem;border-radius:50px;display:inline-block;margin-bottom:0.75rem;border:1px solid var(--border-a);}
+.p-body h3{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.p-body p{font-size:0.82rem;color:var(--gray);line-height:1.65;margin-bottom:0.9rem;}
+.p-result{background:var(--accent-dim);border-radius:8px;padding:0.5rem 0.85rem;font-size:0.79rem;color:var(--accent);font-weight:600;border:1px solid var(--border-a);}
+
+/* STORES */
+.stores{background:var(--bg2);}
+.stores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:0.85rem;margin-top:2.5rem;}
+.s-link{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;text-decoration:none;color:var(--text);font-size:0.81rem;font-weight:600;transition:all 0.25s;display:flex;align-items:center;gap:0.55rem;}
+.s-link:hover{border-color:var(--border-a);color:var(--accent);transform:translateY(-2px);}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg);}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.4rem;margin-top:3rem;}
+.t-card{background:var(--bg2);border-radius:18px;padding:1.8rem;border:1px solid var(--border);transition:all 0.3s;position:relative;overflow:hidden;}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.3s;}
+.t-card:hover{border-color:var(--border-a);transform:translateY(-4px);}
+.t-card:hover::before{opacity:1;}
+.t-verified{display:inline-flex;align-items:center;gap:0.3rem;background:var(--accent-dim);color:var(--accent);font-size:0.67rem;font-weight:700;padding:0.17rem 0.52rem;border-radius:4px;margin-bottom:0.85rem;border:1px solid var(--border-a);}
+.t-stars{color:#f59e0b;font-size:0.82rem;margin-bottom:0.75rem;letter-spacing:0.1em;}
+.t-quote{font-family:'Playfair Display',serif;font-size:3.2rem;color:var(--accent);line-height:0.6;opacity:0.25;margin-bottom:0.5rem;}
+.t-text{font-size:0.86rem;color:var(--text);line-height:1.75;margin-bottom:1.3rem;font-style:italic;}
+.t-author{display:flex;align-items:center;gap:0.85rem;}
+.t-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid var(--border-a);flex-shrink:0;}
+.t-avatar img{width:100%;height:100%;object-fit:cover;}
+.t-name{font-weight:700;font-size:0.88rem;color:var(--white);}
+.t-meta{font-size:0.73rem;color:var(--gray);margin-top:0.12rem;}
+
+/* FAQ */
+.faq{background:var(--bg2);}
+.faq-list{margin-top:2.5rem;max-width:720px;}
+.faq-item{border-bottom:1px solid var(--border);padding:1.2rem 0;cursor:pointer;}
+.faq-q{font-weight:600;font-size:0.92rem;color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:all 0.3s;}
+.faq-a{font-size:0.85rem;color:var(--gray);line-height:1.75;margin-top:0.85rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-icon{background:var(--accent-dim);border-color:var(--border-a);transform:rotate(45deg);}
+
+/* CONTACT */
+.contact{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;margin-top:3rem;align-items:start;}
+.c-links{display:flex;flex-direction:column;gap:0.9rem;margin-top:1.5rem;}
+.c-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-radius:12px;background:var(--bg2);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:all 0.25s;}
+.c-link:hover{border-color:var(--border-a);background:var(--accent-dim);}
+.c-icon{width:36px;height:36px;background:var(--accent-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:1px solid var(--border-a);}
+.c-lbl{font-size:0.69rem;color:var(--gray);margin-bottom:0.1rem;}
+.c-val{font-size:0.87rem;font-weight:600;color:var(--white);}
+.c-ph{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-radius:12px;background:var(--bg2);border:1px dashed rgba(255,255,255,0.08);opacity:0.4;}
+.contact-form{display:flex;flex-direction:column;gap:0.85rem;}
+.contact-form input,.contact-form textarea{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;transition:border 0.2s;}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--gray2);}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--border-a);}
+.contact-form textarea{resize:vertical;min-height:120px;}
+.contact-form button{background:var(--accent);color:#000;border:none;padding:0.9rem 2rem;border-radius:50px;font-weight:700;font-size:0.92rem;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;}
+.contact-form button:hover{background:#25d162;box-shadow:0 8px 28px var(--accent-glow);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:#030303;color:var(--gray);text-align:center;padding:2rem 6%;font-size:0.8rem;border-top:1px solid var(--border);}
+footer span{color:var(--accent);}
+
+@media(max-width:900px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .process-row{grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .process-row::before{display:none;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Aderemi <span>Praise</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag"><div class="tag-dot"></div> Shopify E-Commerce Specialist</div>
+      <h1>Turn Your Business Into a <em>Revenue-Generating</em> System That Skyrockets Your Success.</h1>
+      <p class="hero-desc">I help brands create, set up, and redesign professional Shopify stores — backed by smart marketing strategies that turn visitors into paying customers.</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-primary">View My Work →</a>
+        <a href="#contact" class="btn-outline">Let's Talk</a>
+      </div>
+    </div>
+    <div class="skills-panel">
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">Store Design</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">Store Redesign</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">Store Marketing</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">SEO</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">Client Satisfaction</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap">
+          <svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="35"/><circle class="ring-fill" cx="43" cy="43" r="35" data-pct="100"/></svg>
+          <div class="ring-pct">100%</div>
+        </div>
+        <div class="ring-label">On-Time Delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="sec-eye">About Me</div>
+  <div class="sec-h">Who Is Aderemi Praise?</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-img-box">
+        <img src="praise.jpg" alt="Aderemi Praise">
+      </div>
+      <div class="about-badge">🟢 Shopify Partner Specialist</div>
+    </div>
+    <div class="about-text">
+      <div class="shopify-badge">🛒 Shopify Partner Program Member</div>
+      <p>My name is Aderemi Praise, a Shopify Specialist personally working with the Shopify program to help store owners build and scale profitable businesses. With access to partner tools, performance data, and proven strategies, I analyze underperforming stores and provide tailored solutions for growth.</p>
+      <p>I've worked with multiple store owners to optimise their storefronts, boost conversions, and create sustainable growth strategies. Whether you're starting from scratch or looking to revive an existing store, I bring the expertise and dedication needed to take your e-commerce business to the next level.</p>
+      <p>Every store I work on is treated as my own — with precision, creativity, and a deep commitment to delivering results that speak for themselves.</p>
+      <br>
+      <a href="#contact" class="btn-primary">Work With Me →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="sec-eye">What I Offer</div>
+  <div class="sec-h">Services Built for E-Commerce Growth</div>
+  <p class="sec-sub">From setting up your first store to redesigning an underperforming one — I handle everything so you can focus on running your business.</p>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-icon">🏗️</div><h3>Shopify Store Setup</h3><p>Complete store setup from scratch — theme installation, product listings, payment gateway, shipping configuration, and everything in between.</p></div>
+    <div class="svc-card"><div class="svc-icon">🎨</div><h3>Store Redesign</h3><p>Transform an outdated or underperforming store into a clean, professional, high-converting experience your customers will love.</p></div>
+    <div class="svc-card"><div class="svc-icon">⚙️</div><h3>Theme Customization</h3><p>Customize your Shopify theme to match your brand identity — colors, fonts, layout, and sections tailored exactly to your vision.</p></div>
+    <div class="svc-card"><div class="svc-icon">📣</div><h3>E-Commerce Marketing</h3><p>Social media marketing strategies, product promotion, and audience targeting to drive traffic and generate real sales for your store.</p></div>
+    <div class="svc-card"><div class="svc-icon">🔍</div><h3>SEO Optimization</h3><p>On-page SEO for your Shopify store — optimized product titles, meta descriptions, URLs, and content that ranks and drives organic traffic.</p></div>
+    <div class="svc-card"><div class="svc-icon">📦</div><h3>Product Listing & Optimization</h3><p>Professional product descriptions, optimized images, and SEO-friendly listings that make your products impossible to scroll past.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="sec-eye">How I Work</div>
+  <div class="sec-h">My Simple 5-Step Process</div>
+  <p class="sec-sub">A clear, transparent workflow so you always know exactly what's happening with your project.</p>
+  <div class="process-row">
+    <div class="p-step"><div class="step-circle">1</div><h3>Discovery</h3><p>We discuss your business, goals, and vision for your store.</p></div>
+    <div class="p-step"><div class="step-circle">2</div><h3>Strategy</h3><p>I map out the store structure, positioning, and design direction.</p></div>
+    <div class="p-step"><div class="step-circle">3</div><h3>Build & Design</h3><p>Your store is crafted with precision — every section built to convert.</p></div>
+    <div class="p-step"><div class="step-circle">4</div><h3>Review</h3><p>You review and I refine until you're completely satisfied.</p></div>
+    <div class="p-step"><div class="step-circle">5</div><h3>Launch</h3><p>Your store goes live with full post-launch support included.</p></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="sec-eye">My Work</div>
+  <div class="sec-h">Case Studies & Projects</div>
+  <p class="sec-sub">Real stores, real results. A selection of projects across different niches.</p>
+  <div class="port-grid">
+
+    <div class="p-card">
+      <div class="ba-wrap">
+        <div class="ba-side"><img src="photo_2026-03-21_02_20_46.jpeg" alt="Before"><span class="ba-tag b">Before</span></div>
+        <div class="ba-side"><img src="photo_2026-03-21_02_20_57.jpeg" alt="After"><span class="ba-tag a">After</span></div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Kitchen Utensils · Redesign</span>
+        <h3>SmartSolveHub — Complete Store Transformation</h3>
+        <p>Redesigned a cluttered general store into a focused, professional kitchen utensils brand. Overhauled the layout, brand messaging, product structure, and user experience from the ground up.</p>
+        <div class="p-result">✅ Client: "Oh my god, it is unbelievable!"</div>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <div class="p-cover" style="background:linear-gradient(135deg,#0d1117,#1a1f2e);">
+        <div style="font-size:2.5rem;">👗</div>
+        <div style="color:#444;font-size:0.8rem;font-weight:600;">Fashion · Store Setup</div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Fashion & Apparel · Setup</span>
+        <h3>Fashion Store — From Zero to First Sale</h3>
+        <p>Built a complete Shopify fashion store from scratch — theme setup, product listings, payment configuration, and full launch support. The client achieved their first sale shortly after going live.</p>
+        <div class="p-result">🎉 First Sale Achieved — Verified by Shopify Email</div>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <div class="p-cover" style="background:linear-gradient(135deg,#1a0a0f,#2a1020);">
+        <div style="font-size:2.5rem;">💄</div>
+        <div style="color:#444;font-size:0.8rem;font-weight:600;">Beauty · Setup + Customization</div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Beauty & Skincare · Setup</span>
+        <h3>Luxury Skincare Brand — Full Store Setup</h3>
+        <p>Designed and launched a premium skincare Shopify store with a custom theme, curated product collections, brand-aligned aesthetics, and an optimized checkout flow.</p>
+        <div class="p-result">✅ Launched on schedule with full product catalog</div>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <div class="p-cover" style="background:linear-gradient(135deg,#060d1f,#0d1a30);">
+        <div style="font-size:2.5rem;">📱</div>
+        <div style="color:#444;font-size:0.8rem;font-weight:600;">Electronics · Redesign</div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Electronics & Gadgets · Redesign</span>
+        <h3>Tech Gadgets Store — Performance Redesign</h3>
+        <p>Redesigned an electronics store that had high traffic but poor conversion. Rebuilt product pages, improved navigation, and restructured the homepage to spotlight bestsellers.</p>
+        <div class="p-result">✅ Improved UX with stronger product discovery flow</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORES -->
+<section class="stores">
+  <div class="sec-eye">Live Stores</div>
+  <div class="sec-h">Stores I've Worked With</div>
+  <p class="sec-sub">A selection of live Shopify stores across various niches that I've had the privilege of working on.</p>
+  <div class="stores-grid">
+    <a href="https://smartsolvehub.com" target="_blank" class="s-link">🛒 smartsolvehub.com</a>
+    <a href="https://olympiaangel.com" target="_blank" class="s-link">🛒 olympiaangel.com</a>
+    <a href="https://triangl.com" target="_blank" class="s-link">🛒 triangl.com</a>
+    <a href="https://www.altswim.com" target="_blank" class="s-link">🛒 altswim.com</a>
+    <a href="https://nclabeauty.com" target="_blank" class="s-link">🛒 nclabeauty.com</a>
+    <a href="https://www.georgetteklinger.com" target="_blank" class="s-link">🛒 georgetteklinger.com</a>
+    <a href="https://www.kartel.co.uk" target="_blank" class="s-link">🛒 kartel.co.uk</a>
+    <a href="https://adacollection.com" target="_blank" class="s-link">🛒 adacollection.com</a>
+    <a href="https://bumpshoes.com" target="_blank" class="s-link">🛒 bumpshoes.com</a>
+    <a href="https://www.mistersafetyshoes.com" target="_blank" class="s-link">🛒 mistersafetyshoes.com</a>
+    <a href="https://www.mykitsch.com" target="_blank" class="s-link">🛒 mykitsch.com</a>
+    <a href="https://www.lasenza.ca" target="_blank" class="s-link">🛒 lasenza.ca</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="sec-eye">Client Reviews</div>
+  <div class="sec-h">What Clients Say</div>
+  <p class="sec-sub">Real feedback from real clients across the globe. I take pride in delivering results that genuinely impress.</p>
+  <div class="testi-grid">
+
+    <div class="t-card">
+      <div class="t-verified">✅ Verified Client</div>
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"</div>
+      <p class="t-text">Working with Praise was an absolute game-changer for my business. He completely transformed my Shopify store — the design is clean, professional, and exactly what I envisioned. My customers have been raving about the new look. I couldn't be happier with the results!</p>
+      <div class="t-author">
+        <div class="t-avatar"><img src="client1.jpeg" alt="Aurelie Desmarais"></div>
+        <div><div class="t-name">Aurelie Desmarais</div><div class="t-meta">Store Owner · 🇨🇦 Canada</div></div>
+      </div>
+    </div>
+
+    <div class="t-card">
+      <div class="t-verified">✅ Verified Client</div>
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"</div>
+      <p class="t-text">Praise delivered beyond our expectations. From the very first conversation, he understood our brand vision and brought it to life beautifully. The whole process was smooth, professional, and completed on time. We highly recommend him to anyone looking to build or grow their online store.</p>
+      <div class="t-author">
+        <div class="t-avatar"><img src="client2.jpeg" alt="Elowen & Alaric Hartwell"></div>
+        <div><div class="t-name">Elowen & Alaric Hartwell</div><div class="t-meta">Store Owners · 🇺🇸 United States</div></div>
+      </div>
+    </div>
+
+    <div class="t-card">
+      <div class="t-verified">✅ Verified Client</div>
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"</div>
+      <p class="t-text">I came to Praise with a messy, underperforming store and he completely revived it. The redesign was stunning — every section was purposeful, the branding felt cohesive, and I immediately noticed more engagement from my customers. He truly understands e-commerce at a deep level.</p>
+      <div class="t-author">
+        <div class="t-avatar"><img src="client3.jpeg" alt="Seraphina Whitaker"></div>
+        <div><div class="t-name">Seraphina Whitaker</div><div class="t-meta">Store Owner · 🇺🇸 United States</div></div>
+      </div>
+    </div>
+
+    <div class="t-card">
+      <div class="t-verified">✅ Verified Client</div>
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote">"</div>
+      <p class="t-text">Praise is a true professional. He set up my Shopify store from scratch and guided me through every step of the process. The store looks incredible and I made my first sale within days of launching. I'll definitely be coming back for future projects — absolute five stars!</p>
+      <div class="t-author">
+        <div class="t-avatar"><img src="client4.jpeg" alt="Imogen Thistlewood"></div>
+        <div><div class="t-name">Imogen Thistlewood</div><div class="t-meta">Store Owner · 🇬🇧 United Kingdom</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec-eye">FAQ</div>
+  <div class="sec-h">Frequently Asked Questions</div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">How long does it take to set up a Shopify store?<span class="faq-icon">+</span></div><div class="faq-a">A standard store setup typically takes 3–7 days depending on complexity, number of products, and specific customizations required. I always provide a clear timeline before we begin.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need a Shopify subscription before hiring you?<span class="faq-icon">+</span></div><div class="faq-a">Yes, you'll need an active Shopify account. I can guide you through the signup process and help you select the right plan for your business needs and budget.</div></div>
+    <div class="faq-item"><div class="faq-q">Can you redesign my existing Shopify store?<span class="faq-icon">+</span></div><div class="faq-a">Absolutely — store redesigns are one of my specialties. I'll review your current store, understand your brand goals, and transform it into a professional, conversion-focused storefront.</div></div>
+    <div class="faq-item"><div class="faq-q">What niches do you specialize in?<span class="faq-icon">+</span></div><div class="faq-a">I've worked across fashion & apparel, kitchen & home, beauty & skincare, electronics, and footwear. I can adapt to any niche and create a store perfectly suited to your target market.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you offer revisions after the project is complete?<span class="faq-icon">+</span></div><div class="faq-a">Yes — revisions are built into my process. We review the work together before final delivery and I make adjustments until you're completely satisfied with the result.</div></div>
+    <div class="faq-item"><div class="faq-q">How do we communicate during the project?<span class="faq-icon">+</span></div><div class="faq-a">We can communicate via WhatsApp, email, or Fiverr — whichever you prefer. I provide regular updates throughout the project and am always responsive to your questions.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you handle marketing after the store is set up?<span class="faq-icon">+</span></div><div class="faq-a">Yes — I offer e-commerce marketing services including social media marketing, product promotion, and SEO to drive consistent traffic and sales to your store.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="sec-eye">Get In Touch</div>
+  <div class="sec-h">Ready to Build Your Dream Store?</div>
+  <p class="sec-sub">Let's talk about your project. Reach out through any channel below and I'll get back to you promptly.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="c-links">
+        <a href="mailto:praiseadermi@gmail.com" class="c-link">
+          <div class="c-icon">✉️</div>
+          <div><div class="c-lbl">Email</div><div class="c-val">praiseadermi@gmail.com</div></div>
+        </a>
+        <a href="https://wa.me/2348142928191" target="_blank" class="c-link">
+          <div class="c-icon">💬</div>
+          <div><div class="c-lbl">WhatsApp</div><div class="c-val">+234 814 292 8191</div></div>
+        </a>
+        <a href="https://www.fiverr.com/aderemipraise8" target="_blank" class="c-link">
+          <div class="c-icon">🟢</div>
+          <div><div class="c-lbl">Fiverr</div><div class="c-val">fiverr.com/aderemipraise8</div></div>
+        </a>
+        <div class="c-ph">
+          <div class="c-icon">📘</div>
+          <div><div class="c-lbl">Facebook</div><div class="c-val" style="color:#333;">Coming Soon</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="handleForm(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Project Type (e.g. Store Setup, Redesign)">
+        <textarea placeholder="Tell me about your project..."></textarea>
+        <button type="submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Aderemi Praise</span> · Shopify E-Commerce Specialist · All Rights Reserved</p>
+</footer>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Contact form
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = '#25d162';
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+
+  // Animate rings on load
+  window.addEventListener('load', () => {
+    const circ = 2 * Math.PI * 35;
+    document.querySelectorAll('.ring-fill').forEach(ring => {
+      const pct = parseFloat(ring.dataset.pct) / 100;
+      ring.style.strokeDasharray = circ;
+      setTimeout(() => { ring.style.strokeDashoffset = circ * (1 - pct); }, 400);
+    });
+  });
+</script>
+</body>
+</html>
